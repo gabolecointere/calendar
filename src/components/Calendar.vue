@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import Mixin from './Mixin'
 import Month from './Month'
 
 const ONE_DAY = 86400000
@@ -24,6 +25,8 @@ export default {
     required: true
     },
   },
+
+  mixins: [Mixin],
 
   data() {
     return {
@@ -63,10 +66,6 @@ export default {
         }
     },
 
-    dateComparator(d1, d2) {
-      return (d1.getMonth() === d2.getMonth() && d1.getDate() === d2.getDate() && d1.getFullYear() === d2.getFullYear())
-    },
-
     setDateFormat(date) {
       return (date.getFullYear() +'/'+ this.displayFormatMonth(date.getMonth()) +'/'+ this.displayFormatDay(date.getDate()))
     },
@@ -77,16 +76,7 @@ export default {
 
     displayFormatMonth(m) {
       return (m+1 < 10 ? "0"+(m+1): m+1)
-    },
-
-    sumDays(d, n) {
-            const days = typeof n === 'number' ? n * ONE_DAY: ONE_DAY
-            return new Date(Date.parse(d) + days )
-    },
-
-    monthComparator(d1, d2) {
-            return (d1.getMonth() === d2.getMonth() && d1.getFullYear() === d2.getFullYear())
-    } 
+    }
   }
 }
 </script>

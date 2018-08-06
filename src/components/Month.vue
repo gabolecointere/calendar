@@ -19,9 +19,8 @@
 </template>
 
 <script>
-import Day from './Day.vue'
-
-const ONE_DAY = 86400000
+import Mixin from './Mixin'
+import Day from './Day'
 
 export default {
     props: {
@@ -46,6 +45,8 @@ export default {
             required: true
         }
     },
+
+    mixins: [Mixin],
 
     components: {
         Day
@@ -105,10 +106,6 @@ export default {
             return this.sumDays(d, difference)
         },
 
-        dateComparator(d1, d2) {
-            return (d1.getMonth() === d2.getMonth() && d1.getDate() === d2.getDate() && d1.getFullYear() === d2.getFullYear())
-        },
-
         dateIsBeetween(c,s,e) {
             let isBeeetween = true
 
@@ -120,15 +117,6 @@ export default {
         getDayName(id)  {
             const dayNames = ["Sun", "Mon", "Tus", "Wed", "Thu","Fri","Sat"]
             return dayNames[id]
-        },
-
-        sumDays(d, n) {
-            const days = typeof n === 'number' ? n * ONE_DAY: ONE_DAY
-            return new Date(Date.parse(d) + days )
-        },
-
-        monthComparator(d1, d2) {
-            return (d1.getMonth() === d2.getMonth() && d1.getFullYear() === d2.getFullYear())
         },
 
         getMonthName(id) {

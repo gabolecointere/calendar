@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Form from './components/Form.vue'
-import Calendar from './components/Calendar.vue'
+import Form from './components/Form'
+import Calendar from './components/Calendar'
 
 export default {
   name: 'app',
