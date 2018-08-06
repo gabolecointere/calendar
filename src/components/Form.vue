@@ -6,7 +6,7 @@
         </div>
         <div class='input-container'>
             <label>Number of days:</label>
-            <input type='number' id='days' v-model='days' min="0" required />
+            <input type='number' id='days' v-model.number='days' min='0' required />
         </div>
         <div class='input-container'>
             <label>Country Code (ISO):</label>
@@ -65,10 +65,6 @@ export default {
 .input-container input {
     padding:10px;
     border: solid 1px #e3e3e3;
-}
-
-.input-container input.danger {
-    border: solid 1px #e43a3a;
 }
 
 .submit-btn {
