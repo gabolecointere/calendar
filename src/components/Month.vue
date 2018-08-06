@@ -13,8 +13,7 @@
                 <div class='month-year'>{{getMonthName(monthId)}}, {{year}}</div>
             </div>        
             <div class='month-body'>
-                <Day v-for='day in days' :key='day.id' :type='day.type' :date='day.date' :day='day.day' />
-               <!-- {days.map(day =><Day key={day.id} {...day} />)}     -->        
+                <Day v-for='day in days' :key='day.id' :type='day.type' :date='day.date' :day='day.day' :countryCode='countryCode' :monthId='monthId' :year='year' />       
             </div>
         </div>
 </template>
@@ -41,6 +40,10 @@ export default {
         year: {
             type: Number,
             required: true
+        },
+        countryCode: {
+            type: String,
+            required: true
         }
     },
 
@@ -50,6 +53,7 @@ export default {
 
     data() {
         return {
+            holidays: []
         }
     },
 

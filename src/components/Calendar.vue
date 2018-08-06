@@ -1,7 +1,6 @@
 <template>
   <div class='calendar-container'> 
-    <Month v-for='month in numMonths' :start='startFrom' :key='month.monthID' :code='countryCode' :end='month.end' :year='month.year' :monthId='month.monthId' />
-           <!--  {numMonths.map(v => (<Month start={startAt} key={v.monthId} code={countryCode} {...v} /> ))} -->
+    <Month v-for='month in numMonths' :start='startFrom' :key='month.monthID' :countryCode='countryCode' :end='month.end' :year='month.year' :monthId='month.monthId' />
   </div>
 </template>
 
@@ -23,8 +22,13 @@ export default {
     'countryCode': { 
     type: String,
     required: true
+    },
   },
-},
+
+  data() {
+    return {
+    }
+  },
 
   components: {
     Month
